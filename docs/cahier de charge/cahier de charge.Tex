@@ -1,0 +1,276 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{setspace}
+
+\geometry{margin=2.5cm}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+\title{\textbf{Cahier des Charges}\\
+Application de service d'impression 3D ``LayerLab''}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Informations générales}
+
+\begin{itemize}
+\item \textbf{Titre du projet :} Application de service d'impression 3D ``LayerLab''
+\item \textbf{Date de création :} 17/03/2026
+\item \textbf{Auteur :} Yassine Mkaouar, Zina Laouini, Syrine Ben Soltane
+\item \textbf{Formation :} Ingénierie 
+\item \textbf{Matière :} PFA
+\item \textbf{Établissement :} Iteam University 
+\end{itemize}
+
+\section{Introduction}
+
+\subsection{Objectif du document}
+
+Ce cahier des charges définit les spécifications fonctionnelles et techniques d'une application de service d'impression 3D ``LayerLab'', destinée à faciliter la gestion des commandes, la personnalisation des produits et l'optimisation des processus de production. 
+
+\subsection{Portée du projet}
+
+Le système vise à informatiser l'ensemble des processus de gestion du laboratoire, depuis la prise de commande jusqu'à la gestion des stocks et la fidélisation des clients.
+
+\subsection{Définitions}
+
+\begin{itemize}
+\item SGL : Système de Gestion de Laboratoire
+\item IHM : Interface Homme-Machine
+\item BDD : Base de Données
+\item API : Interface de Programmation d'Application
+\end{itemize}
+
+\section{Description générale du projet}
+
+\subsection{Contexte}
+
+Layer Lab est un nouvel établissement qui souhaite s’implanter sur le marché tunisien en proposant une gamme de produits innovants fabriqués grâce à la technologie d’impression 3D. L’entreprise offre différents types de produits tels que des accessoires automobiles, des lampes décoratives et des porte-clés personnalisés. En plus de la vente de produits, Layer Lab propose également un service d’impression 3D personnalisé en ligne, permettant aux clients de commander des objets uniques adaptés à leurs besoins et à leurs préférences.
+
+\subsection{Vision du produit}
+
+Développer une solution logicielle intuitive permettant de gérer efficacement l’ensemble des opérations du laboratoire, tout en garantissant une prise en main simple et assistée par un chatbot pour accompagner l’utilisateur.
+
+\subsection{Utilisateurs cibles}
+
+\begin{enumerate}
+\item Clients
+\item Administrateurs système
+\end{enumerate}
+
+\section{Exigences fonctionnelles}
+
+\subsection{Gestion des menus et produits}
+
+\begin{itemize}
+\item F01 : Création et gestion des catégories de produits
+\item F02 : Gestion des articles (nom, description, prix, auteur, système de notation par étoiles et commentaires)
+\item F03 : Personnalisation des produits
+\item F04 : Gestion des stocks et alertes de réapprovisionnement
+\end{itemize}
+
+\subsection{Gestion des fichiers}
+
+\begin{itemize}
+\item F05 : Upload et suppression des fichiers 
+\item F06 : Espace utilisé et disponible
+\end{itemize}
+
+\subsection{Gestion des machines et filaments}
+
+\begin{itemize}
+\item F07 : État de la machine (cycle de vie, disponible, en cours d'utilisation, en maintenance) 
+\item F08 : Nombre de machines disponibles
+\item F09 : Gestion des filaments (couleur, type, stock, disponibilité)
+\item F10 : Alertes de maintenance et de pénurie de filaments
+\end{itemize}
+
+\subsection{Gestion des commandes}
+
+\begin{itemize}
+\item F11 : Commandes par téléphone
+\item F12 : Commandes avec ou sans livraison 
+\item F13 : Commandes en ligne
+\item F14 : Suivi de l'état des commandes (en préparation, prêt, en livraison)
+\item F15 : Calcul du temps d'attente
+\item F16 : Gestion des priorités
+\end{itemize}
+
+\subsection{Gestion des paiements}
+
+\begin{itemize}
+\item F17 : Facturation automatique
+\item F18 : Paiement en espèces, virement bancaire
+\item F19 : Gestion des remises (codes promo, fidélité)
+\end{itemize}
+
+\subsection{Gestion des clients et fidélisation}
+
+\begin{itemize}
+\item F20 : Base de données clients
+\item F21 : Programme de fidélité
+\item F22 : Envoi d'offres personnalisées
+\item F23 : Gestion des avis clients  
+\end{itemize}
+
+\section{Exigences non fonctionnelles}
+
+\subsection{Performance}
+
+\begin{itemize}
+\item NF01 : Temps de réponse inférieur à 2 secondes
+\item NF02 : Gestion jusqu'à 500 commandes simultanées
+\item NF03 : Disponibilité 24/7
+\item NF04 : Architecture extensible
+\item NF05 : Site optimisé pour le référencement (SEO)
+\end{itemize}
+
+\subsection{Sécurité}
+
+\begin{itemize}
+\item NF05 : Authentification à deux facteurs
+\item NF06 : Chiffrement des données
+\item NF07 : Journalisation des actions
+\item NF08 : Conformité RGPD
+\item NF09 : Sauvegarde automatique
+\end{itemize}
+
+\subsection{Utilisabilité}
+
+\begin{itemize}
+\item NF10 : Interface intuitive
+\item NF11 : Design responsive
+\item NF12 : Support multilingue
+\item NF14 : Accessibilité WCAG
+\end{itemize}
+
+\section{Architecture technique proposée}
+
+\subsection{Architecture globale}
+
+\begin{itemize}
+\item Application web responsive
+\item Frontend : React.js, Tailwind CSS, Vite
+\item Backend : Spring Boot, API
+\item Base de données PostgreSQL
+\end{itemize}
+
+\subsection{Principales entités}
+
+\begin{itemize}
+\item Clients
+\item Catégories
+\item sous-catégories
+\item Produits
+\item Fichiers 
+\item Machines
+\item Filaments
+\item Commandes
+\item Stocks
+\end{itemize}
+
+\section{Livrables attendus}
+
+\subsection{Documentation}
+
+\begin{itemize}
+\item Spécifications fonctionnelles
+\item Architecture technique
+\item Manuel utilisateur
+\item Plan de tests
+\item Documentation de maintenance
+\end{itemize}
+
+\subsection{Modules logiciels}
+
+\begin{itemize}
+\item Interface administrateur
+\item Application client
+\end{itemize}
+
+\section{Planning}
+
+\subsection{Phases du projet}
+
+\begin{enumerate}
+\item Analyse et conception (2 semaines)
+\item Développement (3 semaines)
+\item Tests (1 semaine)
+\end{enumerate}
+
+\section{Risques}
+
+\subsection{Risques techniques}
+
+\begin{itemize}
+\item Problèmes d'intégration avec les systèmes de paiement
+\item Performance insuffisante
+\end{itemize}
+
+\subsection{Risques organisationnels}
+
+\begin{itemize}
+\item Résistance au changement
+\item Évolution des besoins
+\item Contraintes légales
+\end{itemize}
+
+\section{Diagrammes}
+
+\begin{itemize}
+\item Diagramme de contexte client 
+\begin{itemize}[label=\textbullet]
+    \item Un client peut consulter toutes les catégories
+    \item Un client peut ouvrir la fenêtre d'un article pour voir les détails (description, prix, avis), donner un avis, le noter par étoiles et l'ajouter au panier
+    \item Un client peut passer une commande en ligne ou par téléphone (ajouter au panier puis valider la commande ou appeler le service client pour passer la commande via WhatsApp, comme sur le site Dokani)
+    \item Un client peut discuter avec le chatbot pour être aidé dans la navigation et le processus de commande (le chatbot peut aussi aider les clients à trouver des produits spécifiques, répondre à des questions sur les produits, fournir des recommandations basées sur les préférences du client et guider les clients tout au long du processus de commande)
+    \item Un client est caractérisé par son nom, prénom, adresse, mot de passe, numéro de téléphone et adresse e-mail
+\end{itemize}
+
+\item Diagramme de contexte administrateur 
+\begin{itemize}[label=\textbullet]
+    \item Un administrateur peut gérer les catégories de produits
+    \item Un administrateur peut accéder à la partie admin 
+    \item Un administrateur peut gérer les produits
+    \item Un administrateur peut gérer les commandes
+    \item Un administrateur peut gérer les clients
+    \item Un administrateur peut voir les statistiques de vente et de stock (dashboard)
+    \item Un administrateur peut gérer les machines et les filaments
+    \item Un administrateur peut gérer les fichiers
+    \item Un administrateur peut gérer les paramètres du site
+    \item Un administrateur est caractérisé par son nom, prénom, adresse, mot de passe, numéro de téléphone et adresse e-mail
+\end{itemize}
+
+\item Diagramme de contexte catégorie et produit  
+\begin{itemize}[label=\textbullet]
+    \item Chaque produit appartient à une sous-catégorie et chaque sous-catégorie appartient à une catégorie
+    \item Un produit est caractérisé par son nom, sa description, son prix, son auteur et sa sous-catégorie
+    \item Un produit peut avoir plusieurs avis et notes de la part des clients
+    \item Une sous-catégorie est caractérisée par son nom et sa catégorie (ex : porte-clés, lampes décoratives...)
+    \item Une catégorie est caractérisée par son nom (ex : LayerLab ou AutoLab) 
+\end{itemize}
+
+\item Diagramme de cas d'utilisation
+\item Diagramme de classes
+\item Diagramme de séquence
+\end{itemize}
+
+\section{Perspectives d’évolution du système}
+
+\begin{itemize}
+\item Ajouter un nouveau type d’utilisateur, appelé contributeur, en complément des rôles existants (client et administrateur).
+\item Permettre aux clients de naviguer et consulter les produits proposés par les contributeurs.
+\item Mettre en place un système de niveaux pour les contributeurs, similaire à celui de plateformes comme MakerWorld, afin de valoriser leur engagement et leurs contributions.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,3 @@
+com\layerlab\backend\integration\CategoryRepositoryMySQLTest.class
+com\layerlab\backend\security\JwtPropertyTest.class
+com\layerlab\backend\integration\MySQLIntegrationTest.class
