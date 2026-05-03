@@ -222,7 +222,7 @@ Ce plan détaille l'implémentation du backend LayerLab avec Spring Boot 3.x, My
     - Exposer PUT /api/admin/subcategories/{id} → appeler CategoryService.updateSubCategory()
     - _Exigences : 2.1, 2.2, 2.3, 2.4, 2.5_
   
-  - [ ]* 9.3 Écrire les tests unitaires pour CategoryService
+  - [ ] 9.3 Écrire les tests unitaires pour CategoryService
     - Tester la création, mise à jour et suppression de catégories
     - Tester le cas de suppression avec sous-catégories actives (HTTP 409)
     - Tester le cas d'id inexistant (HTTP 404)

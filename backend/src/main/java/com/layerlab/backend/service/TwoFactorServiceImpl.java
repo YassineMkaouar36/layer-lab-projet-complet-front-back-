@@ -159,7 +159,7 @@ public class TwoFactorServiceImpl implements TwoFactorService {
         clearOtp(user);
         userRepository.save(user);
 
-        String token = jwtUtil.generateToken(user.getEmail());
+        String token = jwtUtil.generateToken(user.getEmail(), user.getRole().name(), user.getFirstName());
         log.info("OTP validated successfully for userId={}, JWT issued", userId);
         return token;
     }

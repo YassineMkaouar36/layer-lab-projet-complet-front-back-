@@ -18,6 +18,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import java.lang.reflect.Field;
 import java.util.Collection;
@@ -28,6 +29,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 /**
@@ -73,6 +75,18 @@ class AuthServiceImplTest {
 
         @Override
         public String generateToken(String email) {
+            this.lastGeneratedEmail = email;
+            return FIXED_TOKEN;
+        }
+
+        @Override
+        public String generateToken(String email, String role) {
+            this.lastGeneratedEmail = email;
+            return FIXED_TOKEN;
+        }
+
+        @Override
+        public String generateToken(String email, String role, String firstName) {
             this.lastGeneratedEmail = email;
             return FIXED_TOKEN;
         }
@@ -145,6 +159,7 @@ class AuthServiceImplTest {
     private UserRepository        userRepository;
     private AuthenticationManager authenticationManager;
     private TwoFactorService      twoFactorService;
+    private EmailService          emailService;
 
     // Concrete / JDK stubs — avoid Byte Buddy instrumentation
     private StubJwtUtil           jwtUtil;
@@ -161,11 +176,16 @@ class AuthServiceImplTest {
         userRepository        = mock(UserRepository.class);
         authenticationManager = mock(AuthenticationManager.class);
         twoFactorService      = mock(TwoFactorService.class);
+        emailService          = mock(EmailService.class);
         jwtUtil               = new StubJwtUtil();
         passwordEncoder       = new StubPasswordEncoder();
 
         authService = new AuthServiceImpl(
-                userRepository, passwordEncoder, jwtUtil, authenticationManager, twoFactorService);
+                userRepository, passwordEncoder, jwtUtil, authenticationManager,
+                twoFactorService, emailService);
+
+        // Inject frontend URL via reflection
+        ReflectionTestUtils.setField(authService, "frontendUrl", "http://localhost:5173");
 
         validRegisterRequest = new RegisterRequest(
                 "Alice", "Dupont", EMAIL, PASSWORD, "+21612345678", "12 Rue de Tunis");
@@ -184,6 +204,7 @@ class AuthServiceImplTest {
         savedUser.setAddress("12 Rue de Tunis");
         savedUser.setRole(Role.ROLE_USER);
         savedUser.setActive(true);
+        savedUser.setEmailVerified(true);
         savedUser.setTwoFactorEnabled(false);
     }
 
@@ -197,10 +218,11 @@ class AuthServiceImplTest {
 
         /**
          * Requirement 1.1 / 1.2 / 1.8 — nominal registration.
+         * Now creates inactive account and sends verification email.
          */
         @Test
-        @DisplayName("Nominal — new user is persisted and JWT is returned")
-        void register_WithValidRequest_ShouldPersistUserAndReturnToken() {
+        @DisplayName("Nominal — new user is persisted (inactive) and verification email is sent")
+        void register_WithValidRequest_ShouldPersistUserAndSendVerificationEmail() {
             // Given
             when(userRepository.existsByEmail(EMAIL)).thenReturn(false);
             AtomicReference<User> capturedUser = new AtomicReference<>();
@@ -208,30 +230,32 @@ class AuthServiceImplTest {
                 capturedUser.set(inv.getArgument(0));
                 return inv.getArgument(0);
             });
+            doNothing().when(emailService).sendVerificationEmail(anyString(), anyString());
 
             // When
             TwoFactorResponse response = authService.register(validRegisterRequest);
 
-            // Then — response
+            // Then — response has no token (user must verify email first)
             assertThat(response).isNotNull();
             assertThat(response.isRequiresTwoFactor()).isFalse();
-            assertThat(response.getToken()).isEqualTo(StubJwtUtil.FIXED_TOKEN);
+            assertThat(response.getToken()).isNull();
             assertThat(response.getUserId()).isNull();
 
             // Then — password was hashed (Requirement 1.8)
             assertThat(passwordEncoder.lastRawPassword).isEqualTo(PASSWORD);
 
-            // Then — persisted user fields
+            // Then — persisted user is inactive with verification token
             User persisted = capturedUser.get();
             assertThat(persisted).isNotNull();
             assertThat(persisted.getEmail()).isEqualTo(EMAIL);
             assertThat(persisted.getPassword()).isEqualTo(StubPasswordEncoder.HASH_PREFIX + PASSWORD);
             assertThat(persisted.getRole()).isEqualTo(Role.ROLE_USER);
-            assertThat(persisted.getActive()).isTrue();
-            assertThat(persisted.getTwoFactorEnabled()).isFalse();
+            assertThat(persisted.getActive()).isFalse();
+            assertThat(persisted.getEmailVerified()).isFalse();
+            assertThat(persisted.getEmailVerificationToken()).isNotNull().isNotBlank();
 
-            // Then — JWT generated with the user's email (Requirement 1.2)
-            assertThat(jwtUtil.lastGeneratedEmail).isEqualTo(EMAIL);
+            // Then — verification email was sent
+            verify(emailService).sendVerificationEmail(eq(EMAIL), anyString());
         }
 
         /**
@@ -247,6 +271,7 @@ class AuthServiceImplTest {
                 capturedUser.set(inv.getArgument(0));
                 return inv.getArgument(0);
             });
+            doNothing().when(emailService).sendVerificationEmail(anyString(), anyString());
 
             // When
             authService.register(validRegisterRequest);
@@ -277,21 +302,23 @@ class AuthServiceImplTest {
         }
 
         /**
-         * Requirement 1.1 — response must have requiresTwoFactor=false and a non-null token.
+         * Requirement 1.1 — response must have requiresTwoFactor=false and token=null
+         * (user must verify email before getting a token).
          */
         @Test
-        @DisplayName("Response has requiresTwoFactor=false and non-null token after registration")
-        void register_ShouldReturnDirectTokenWithoutTwoFactorChallenge() {
+        @DisplayName("Response has requiresTwoFactor=false and token=null after registration")
+        void register_ShouldReturnNoTokenUntilEmailVerified() {
             // Given
             when(userRepository.existsByEmail(EMAIL)).thenReturn(false);
             when(userRepository.save(any(User.class))).thenAnswer(inv -> inv.getArgument(0));
+            doNothing().when(emailService).sendVerificationEmail(anyString(), anyString());
 
             // When
             TwoFactorResponse response = authService.register(validRegisterRequest);
 
             // Then
             assertThat(response.isRequiresTwoFactor()).isFalse();
-            assertThat(response.getToken()).isNotNull().isNotBlank();
+            assertThat(response.getToken()).isNull();
             assertThat(response.getUserId()).isNull();
         }
 
@@ -308,6 +335,7 @@ class AuthServiceImplTest {
                 capturedUser.set(inv.getArgument(0));
                 return inv.getArgument(0);
             });
+            doNothing().when(emailService).sendVerificationEmail(anyString(), anyString());
 
             // When
             authService.register(validRegisterRequest);
@@ -317,11 +345,11 @@ class AuthServiceImplTest {
         }
 
         /**
-         * New accounts must be created with active=true.
+         * New accounts must be created with active=false pending email verification.
          */
         @Test
-        @DisplayName("New accounts are created with active=true")
-        void register_ShouldCreateActiveAccount() {
+        @DisplayName("New accounts are created with active=false pending email verification")
+        void register_ShouldCreateInactiveAccount() {
             // Given
             when(userRepository.existsByEmail(EMAIL)).thenReturn(false);
             AtomicReference<User> capturedUser = new AtomicReference<>();
@@ -329,20 +357,22 @@ class AuthServiceImplTest {
                 capturedUser.set(inv.getArgument(0));
                 return inv.getArgument(0);
             });
+            doNothing().when(emailService).sendVerificationEmail(anyString(), anyString());
 
             // When
             authService.register(validRegisterRequest);
 
             // Then
-            assertThat(capturedUser.get().getActive()).isTrue();
+            assertThat(capturedUser.get().getActive()).isFalse();
+            assertThat(capturedUser.get().getEmailVerified()).isFalse();
         }
 
         /**
-         * New accounts must have twoFactorEnabled=false.
+         * New accounts must have twoFactorEnabled=true.
          */
         @Test
-        @DisplayName("New accounts have twoFactorEnabled=false by default")
-        void register_ShouldCreate2FADisabledAccount() {
+        @DisplayName("New accounts have twoFactorEnabled=true by default")
+        void register_ShouldCreate2FAEnabledAccount() {
             // Given
             when(userRepository.existsByEmail(EMAIL)).thenReturn(false);
             AtomicReference<User> capturedUser = new AtomicReference<>();
@@ -350,12 +380,13 @@ class AuthServiceImplTest {
                 capturedUser.set(inv.getArgument(0));
                 return inv.getArgument(0);
             });
+            doNothing().when(emailService).sendVerificationEmail(anyString(), anyString());
 
             // When
             authService.register(validRegisterRequest);
 
             // Then
-            assertThat(capturedUser.get().getTwoFactorEnabled()).isFalse();
+            assertThat(capturedUser.get().getTwoFactorEnabled()).isTrue();
         }
 
         /**
@@ -372,6 +403,7 @@ class AuthServiceImplTest {
                     .isInstanceOf(ConflictException.class);
 
             assertThat(passwordEncoder.lastRawPassword).isNull();
+            verify(emailService, never()).sendVerificationEmail(anyString(), anyString());
         }
     }
 
@@ -471,6 +503,7 @@ class AuthServiceImplTest {
             userWith2FA.setPassword(StubPasswordEncoder.HASH_PREFIX + PASSWORD);
             userWith2FA.setRole(Role.ROLE_USER);
             userWith2FA.setActive(true);
+            userWith2FA.setEmailVerified(true);
             userWith2FA.setTwoFactorEnabled(true);
         }
 
@@ -558,6 +591,7 @@ class AuthServiceImplTest {
             user2FA.setPassword(StubPasswordEncoder.HASH_PREFIX + PASSWORD);
             user2FA.setRole(Role.ROLE_USER);
             user2FA.setActive(true);
+            user2FA.setEmailVerified(true);
             user2FA.setTwoFactorEnabled(true);
 
             when(authenticationManager.authenticate(any())).thenReturn(new StubAuthentication(EMAIL));
@@ -593,6 +627,7 @@ class AuthServiceImplTest {
             userNullFlag.setPassword(StubPasswordEncoder.HASH_PREFIX + PASSWORD);
             userNullFlag.setRole(Role.ROLE_USER);
             userNullFlag.setActive(true);
+            userNullFlag.setEmailVerified(true);
             userNullFlag.setTwoFactorEnabled(null);
 
             when(authenticationManager.authenticate(any())).thenReturn(new StubAuthentication(EMAIL));

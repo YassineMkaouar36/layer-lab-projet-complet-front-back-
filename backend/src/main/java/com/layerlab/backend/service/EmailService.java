@@ -30,6 +30,31 @@ public class EmailService {
     }
 
     /**
+     * Sends an email verification link to a newly registered user.
+     *
+     * @param to    the recipient's email address
+     * @param token the unique verification token
+     * @param verificationUrl the full clickable URL
+     */
+    public void sendVerificationEmail(String to, String verificationUrl) {
+        log.info("Sending verification email to {}", to);
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(fromAddress);
+        message.setTo(to);
+        message.setSubject("LayerLab — Confirmez votre adresse email");
+        message.setText(buildVerificationEmailBody(verificationUrl));
+
+        try {
+            mailSender.send(message);
+            log.info("Verification email sent successfully to {}", to);
+        } catch (MailException e) {
+            log.error("Failed to send verification email to {}: {}", to, e.getMessage(), e);
+            throw new RuntimeException("Impossible d'envoyer l'email de vérification à : " + to, e);
+        }
+    }
+
+    /**
      * Sends a 6-digit OTP code to the specified email address.
      *
      * <p>The email contains a plain-text message with the OTP and its 10-minute validity window.
@@ -59,6 +84,24 @@ public class EmailService {
     // -------------------------------------------------------------------------
     // Private helpers
     // -------------------------------------------------------------------------
+
+    private String buildVerificationEmailBody(String verificationUrl) {
+        return """
+                Bonjour,
+
+                Merci de vous être inscrit sur LayerLab !
+
+                Veuillez confirmer votre adresse email en cliquant sur le lien ci-dessous :
+
+                    %s
+
+                Ce lien est valable pendant 24 heures.
+
+                Si vous n'avez pas créé de compte, ignorez cet email.
+
+                — L'équipe LayerLab
+                """.formatted(verificationUrl);
+    }
 
     private String buildOtpEmailBody(String otpCode) {
         return """

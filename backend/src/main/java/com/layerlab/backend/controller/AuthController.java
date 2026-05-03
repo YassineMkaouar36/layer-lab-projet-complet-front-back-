@@ -4,6 +4,7 @@ import com.layerlab.backend.dto.request.LoginRequest;
 import com.layerlab.backend.dto.request.RegisterRequest;
 import com.layerlab.backend.dto.response.TwoFactorResponse;
 import com.layerlab.backend.service.AuthService;
+import com.layerlab.backend.service.AuthServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -34,9 +35,11 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final AuthService authService;
+    private final AuthServiceImpl authServiceImpl;
 
-    public AuthController(AuthService authService) {
+    public AuthController(AuthService authService, AuthServiceImpl authServiceImpl) {
         this.authService = authService;
+        this.authServiceImpl = authServiceImpl;
     }
 
     // -------------------------------------------------------------------------
@@ -133,5 +136,32 @@ public class AuthController {
 
         TwoFactorResponse response = authService.login(request);
         return ResponseEntity.ok(response);
+    }
+
+    // -------------------------------------------------------------------------
+    // GET /api/auth/verify-email
+    // -------------------------------------------------------------------------
+
+    /**
+     * Activates a user account via the email verification token.
+     *
+     * <p>The link is sent by email after registration. Once clicked, the account
+     * becomes active and the user can log in.
+     *
+     * @param token the UUID verification token from the email link
+     * @return 200 OK on success
+     */
+    @Operation(
+        summary = "Vérification de l'email",
+        description = "Active le compte utilisateur via le token reçu par email."
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = "Email vérifié — compte activé"),
+        @ApiResponse(responseCode = "422", description = "Token invalide ou déjà utilisé")
+    })
+    @GetMapping("/verify-email")
+    public ResponseEntity<Void> verifyEmail(@RequestParam String token) {
+        authServiceImpl.verifyEmail(token);
+        return ResponseEntity.ok().build();
     }
 }

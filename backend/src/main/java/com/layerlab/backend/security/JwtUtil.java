@@ -37,6 +37,33 @@ public class JwtUtil {
                 .compact();
     }
 
+    public String generateToken(String email, String role) {
+        Date now = new Date();
+        Date expiry = new Date(now.getTime() + expirationMs);
+
+        return Jwts.builder()
+                .subject(email)
+                .claim("role", role)
+                .issuedAt(now)
+                .expiration(expiry)
+                .signWith(getSigningKey())
+                .compact();
+    }
+
+    public String generateToken(String email, String role, String firstName) {
+        Date now = new Date();
+        Date expiry = new Date(now.getTime() + expirationMs);
+
+        return Jwts.builder()
+                .subject(email)
+                .claim("role", role)
+                .claim("firstName", firstName)
+                .issuedAt(now)
+                .expiration(expiry)
+                .signWith(getSigningKey())
+                .compact();
+    }
+
     public String extractUsername(String token) {
         return parseClaims(token).getSubject();
     }

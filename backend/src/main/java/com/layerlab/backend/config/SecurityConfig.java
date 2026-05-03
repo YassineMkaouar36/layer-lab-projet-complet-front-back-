@@ -2,6 +2,7 @@ package com.layerlab.backend.config;
 
 import com.layerlab.backend.security.JwtAuthenticationFilter;
 import com.layerlab.backend.security.JwtUtil;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,6 +18,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 /**
  * Spring Security configuration for LayerLab backend.
@@ -33,6 +39,9 @@ public class SecurityConfig {
 
     private final JwtUtil jwtUtil;
     private final UserDetailsService userDetailsService;
+
+    @Value("${app.cors.allowed-origins:http://localhost:5173}")
+    private String allowedOrigins;
 
     public SecurityConfig(JwtUtil jwtUtil, UserDetailsService userDetailsService) {
         this.jwtUtil = jwtUtil;
@@ -80,6 +89,25 @@ public class SecurityConfig {
     }
 
     /**
+     * CORS configuration source.
+     * Allows the frontend (http://localhost:5173) to call the API with
+     * Authorization headers and standard HTTP methods.
+     */
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOrigins(List.of(allowedOrigins.split(",")));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowCredentials(true);
+        config.setMaxAge(3600L);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
+        return source;
+    }
+
+    /**
      * Main security filter chain.
      *
      * <ul>
@@ -96,6 +124,9 @@ public class SecurityConfig {
         http
             // Disable CSRF — not needed for stateless JWT APIs
             .csrf(AbstractHttpConfigurer::disable)
+
+            // Enable CORS with our configuration
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
 
             // Stateless session — no HTTP session will be created or used
             .sessionManagement(session ->

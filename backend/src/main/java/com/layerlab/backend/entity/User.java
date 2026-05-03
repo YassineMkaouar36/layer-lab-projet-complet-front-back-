@@ -46,6 +46,14 @@ public class User {
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
+    // Email verification
+    @Column(nullable = false)
+    @Builder.Default
+    private Boolean emailVerified = false;
+
+    @Column(nullable = true)
+    private String emailVerificationToken;
+
     // 2FA fields — Requirement 16.4
     @Column(nullable = false)
     @Builder.Default
@@ -81,6 +89,8 @@ public class User {
     public String getTwoFactorSecret() { return twoFactorSecret; }
     public String getOtpCode() { return otpCode; }
     public LocalDateTime getOtpExpiry() { return otpExpiry; }
+    public Boolean getEmailVerified() { return emailVerified; }
+    public String getEmailVerificationToken() { return emailVerificationToken; }
 
     public void setId(Long id) { this.id = id; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
@@ -96,4 +106,6 @@ public class User {
     public void setTwoFactorSecret(String twoFactorSecret) { this.twoFactorSecret = twoFactorSecret; }
     public void setOtpCode(String otpCode) { this.otpCode = otpCode; }
     public void setOtpExpiry(LocalDateTime otpExpiry) { this.otpExpiry = otpExpiry; }
+    public void setEmailVerified(Boolean emailVerified) { this.emailVerified = emailVerified; }
+    public void setEmailVerificationToken(String emailVerificationToken) { this.emailVerificationToken = emailVerificationToken; }
 }
