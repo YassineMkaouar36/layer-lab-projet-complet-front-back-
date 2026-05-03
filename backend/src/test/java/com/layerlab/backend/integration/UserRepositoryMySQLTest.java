@@ -21,13 +21,13 @@ class UserRepositoryMySQLTest {
     private UserRepository userRepository;
 
     private User buildUser(String email) {
-        return User.builder()
-                .firstName("John")
-                .lastName("Doe")
-                .email(email)
-                .password("secret")
-                .role(Role.CLIENT)
-                .build();
+        User user = new User();
+        user.setFirstName("John");
+        user.setLastName("Doe");
+        user.setEmail(email);
+        user.setPassword("secret");
+        user.setRole(Role.ROLE_USER);
+        return user;
     }
 
     /**

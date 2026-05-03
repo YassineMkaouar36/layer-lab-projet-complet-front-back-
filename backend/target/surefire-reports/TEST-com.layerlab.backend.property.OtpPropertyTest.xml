@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.layerlab.backend.property.OtpPropertyTest" time="217.037" tests="5" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="25"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\hp\Desktop\projet web LayerLab\backend\target\test-classes;C:\Users\hp\Desktop\projet web LayerLab\backend\target\classes;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.5\spring-boot-starter-web-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.5\spring-boot-starter-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot\3.2.5\spring-boot-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.5\spring-boot-autoconfigure-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.5\spring-boot-starter-logging-3.2.5.jar;C:\Users\hp\.m2\repository\ch\qos\logback\logback-classic\1.4.14\logback-classic-1.4.14.jar;C:\Users\hp\.m2\repository\ch\qos\logback\logback-core\1.4.14\logback-core-1.4.14.jar;C:\Users\hp\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\hp\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\hp\.m2\repository\org\slf4j\jul-to-slf4j\2.0.13\jul-to-slf4j-2.0.13.jar;C:\Users\hp\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\hp\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.5\spring-boot-starter-json-3.2.5.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.4\jackson-datatype-jdk8-2.15.4.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.4\jackson-datatype-jsr310-2.15.4.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.4\jackson-module-parameter-names-2.15.4.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.5\spring-boot-starter-tomcat-3.2.5.jar;C:\Users\hp\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.20\tomcat-embed-core-10.1.20.jar;C:\Users\hp\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.20\tomcat-embed-websocket-10.1.20.jar;C:\Users\hp\.m2\repository\org\springframework\spring-web\6.1.6\spring-web-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-beans\6.1.6\spring-beans-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-webmvc\6.1.6\spring-webmvc-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-context\6.1.6\spring-context-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-expression\6.1.6\spring-expression-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.2.5\spring-boot-starter-data-jpa-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.2.5\spring-boot-starter-aop-3.2.5.jar;C:\Users\hp\.m2\repository\org\aspectj\aspectjweaver\1.9.22\aspectjweaver-1.9.22.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.5\spring-boot-starter-jdbc-3.2.5.jar;C:\Users\hp\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\hp\.m2\repository\org\springframework\spring-jdbc\6.1.6\spring-jdbc-6.1.6.jar;C:\Users\hp\.m2\repository\org\hibernate\orm\hibernate-core\6.4.4.Final\hibernate-core-6.4.4.Final.jar;C:\Users\hp\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\hp\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\hp\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\hp\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\hp\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\hp\.m2\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;C:\Users\hp\.m2\repository\net\bytebuddy\byte-buddy\1.14.13\byte-buddy-1.14.13.jar;C:\Users\hp\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\hp\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\hp\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\hp\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\hp\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\hp\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\hp\.m2\repository\org\springframework\data\spring-data-jpa\3.2.5\spring-data-jpa-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\data\spring-data-commons\3.2.5\spring-data-commons-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\spring-orm\6.1.6\spring-orm-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-tx\6.1.6\spring-tx-6.1.6.jar;C:\Users\hp\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\hp\.m2\repository\org\springframework\spring-aspects\6.1.6\spring-aspects-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.2.5\spring-boot-starter-security-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\spring-aop\6.1.6\spring-aop-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\security\spring-security-config\6.2.4\spring-security-config-6.2.4.jar;C:\Users\hp\.m2\repository\org\springframework\security\spring-security-web\6.2.4\spring-security-web-6.2.4.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.2.5\spring-boot-starter-validation-3.2.5.jar;C:\Users\hp\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.20\tomcat-embed-el-10.1.20.jar;C:\Users\hp\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\hp\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-actuator\3.2.5\spring-boot-starter-actuator-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-actuator-autoconfigure\3.2.5\spring-boot-actuator-autoconfigure-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-actuator\3.2.5\spring-boot-actuator-3.2.5.jar;C:\Users\hp\.m2\repository\io\micrometer\micrometer-observation\1.12.5\micrometer-observation-1.12.5.jar;C:\Users\hp\.m2\repository\io\micrometer\micrometer-commons\1.12.5\micrometer-commons-1.12.5.jar;C:\Users\hp\.m2\repository\io\micrometer\micrometer-jakarta9\1.12.5\micrometer-jakarta9-1.12.5.jar;C:\Users\hp\.m2\repository\io\micrometer\micrometer-core\1.12.5\micrometer-core-1.12.5.jar;C:\Users\hp\.m2\repository\org\hdrhistogram\HdrHistogram\2.1.12\HdrHistogram-2.1.12.jar;C:\Users\hp\.m2\repository\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-mail\3.2.5\spring-boot-starter-mail-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\spring-context-support\6.1.6\spring-context-support-6.1.6.jar;C:\Users\hp\.m2\repository\org\eclipse\angus\jakarta.mail\2.0.3\jakarta.mail-2.0.3.jar;C:\Users\hp\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\hp\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\hp\.m2\repository\com\mysql\mysql-connector-j\8.3.0\mysql-connector-j-8.3.0.jar;C:\Users\hp\.m2\repository\io\jsonwebtoken\jjwt-api\0.12.5\jjwt-api-0.12.5.jar;C:\Users\hp\.m2\repository\io\jsonwebtoken\jjwt-impl\0.12.5\jjwt-impl-0.12.5.jar;C:\Users\hp\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.12.5\jjwt-jackson-0.12.5.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.4\jackson-databind-2.15.4.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.4\jackson-annotations-2.15.4.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.4\jackson-core-2.15.4.jar;C:\Users\hp\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-ui\2.5.0\springdoc-openapi-starter-webmvc-ui-2.5.0.jar;C:\Users\hp\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-api\2.5.0\springdoc-openapi-starter-webmvc-api-2.5.0.jar;C:\Users\hp\.m2\repository\org\springdoc\springdoc-openapi-starter-common\2.5.0\springdoc-openapi-starter-common-2.5.0.jar;C:\Users\hp\.m2\repository\io\swagger\core\v3\swagger-core-jakarta\2.2.21\swagger-core-jakarta-2.2.21.jar;C:\Users\hp\.m2\repository\org\apache\commons\commons-lang3\3.13.0\commons-lang3-3.13.0.jar;C:\Users\hp\.m2\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.21\swagger-annotations-jakarta-2.2.21.jar;C:\Users\hp\.m2\repository\io\swagger\core\v3\swagger-models-jakarta\2.2.21\swagger-models-jakarta-2.2.21.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.15.4\jackson-dataformat-yaml-2.15.4.jar;C:\Users\hp\.m2\repository\org\webjars\swagger-ui\5.13.0\swagger-ui-5.13.0.jar;C:\Users\hp\.m2\repository\org\projectlombok\lombok\1.18.34\lombok-1.18.34.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.5\spring-boot-starter-test-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-test\3.2.5\spring-boot-test-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.5\spring-boot-test-autoconfigure-3.2.5.jar;C:\Users\hp\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\hp\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\hp\.m2\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;C:\Users\hp\.m2\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;C:\Users\hp\.m2\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;C:\Users\hp\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\hp\.m2\repository\org\awaitility\awaitility\4.2.1\awaitility-4.2.1.jar;C:\Users\hp\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\hp\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\hp\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\hp\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\hp\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\hp\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\hp\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.13\byte-buddy-agent-1.14.13.jar;C:\Users\hp\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\hp\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\hp\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\hp\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\hp\.m2\repository\org\springframework\spring-core\6.1.6\spring-core-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-jcl\6.1.6\spring-jcl-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-test\6.1.6\spring-test-6.1.6.jar;C:\Users\hp\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\hp\.m2\repository\org\springframework\security\spring-security-test\6.2.4\spring-security-test-6.2.4.jar;C:\Users\hp\.m2\repository\org\springframework\security\spring-security-core\6.2.4\spring-security-core-6.2.4.jar;C:\Users\hp\.m2\repository\org\springframework\security\spring-security-crypto\6.2.4\spring-security-crypto-6.2.4.jar;C:\Users\hp\.m2\repository\net\jqwik\jqwik\1.8.4\jqwik-1.8.4.jar;C:\Users\hp\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\hp\.m2\repository\net\jqwik\jqwik-api\1.8.4\jqwik-api-1.8.4.jar;C:\Users\hp\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\hp\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\hp\.m2\repository\net\jqwik\jqwik-web\1.8.4\jqwik-web-1.8.4.jar;C:\Users\hp\.m2\repository\net\jqwik\jqwik-time\1.8.4\jqwik-time-1.8.4.jar;C:\Users\hp\.m2\repository\net\jqwik\jqwik-engine\1.8.4\jqwik-engine-1.8.4.jar;C:\Users\hp\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\hp\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Europe/Paris"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="25"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="FR"/>
+    <property name="sun.boot.library.path" value="C:\Users\hp\AppData\Local\Programs\Eclipse Adoptium\jdk-25.0.2.10-hotspot\bin"/>
+    <property name="sun.java.command" value="C:\Users\hp\AppData\Local\Temp\surefire10323325369340236080\surefirebooter-20260502234500589_3.jar C:\Users\hp\AppData\Local\Temp\surefire10323325369340236080 2026-05-02T23-44-58_104-jvmRun1 surefire-20260502234500589_1tmp surefire_0-20260502234500589_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="JwtPropertyTest,PasswordEncodingPropertyTest,ValidationPropertyTest,ErrorResponsePropertyTest,OtpPropertyTest,UserDetailsServiceImplTest"/>
+    <property name="surefire.test.class.path" value="C:\Users\hp\Desktop\projet web LayerLab\backend\target\test-classes;C:\Users\hp\Desktop\projet web LayerLab\backend\target\classes;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.5\spring-boot-starter-web-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.5\spring-boot-starter-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot\3.2.5\spring-boot-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.5\spring-boot-autoconfigure-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.5\spring-boot-starter-logging-3.2.5.jar;C:\Users\hp\.m2\repository\ch\qos\logback\logback-classic\1.4.14\logback-classic-1.4.14.jar;C:\Users\hp\.m2\repository\ch\qos\logback\logback-core\1.4.14\logback-core-1.4.14.jar;C:\Users\hp\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\hp\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\hp\.m2\repository\org\slf4j\jul-to-slf4j\2.0.13\jul-to-slf4j-2.0.13.jar;C:\Users\hp\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\hp\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.5\spring-boot-starter-json-3.2.5.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.4\jackson-datatype-jdk8-2.15.4.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.4\jackson-datatype-jsr310-2.15.4.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.4\jackson-module-parameter-names-2.15.4.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.5\spring-boot-starter-tomcat-3.2.5.jar;C:\Users\hp\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.20\tomcat-embed-core-10.1.20.jar;C:\Users\hp\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.20\tomcat-embed-websocket-10.1.20.jar;C:\Users\hp\.m2\repository\org\springframework\spring-web\6.1.6\spring-web-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-beans\6.1.6\spring-beans-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-webmvc\6.1.6\spring-webmvc-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-context\6.1.6\spring-context-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-expression\6.1.6\spring-expression-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.2.5\spring-boot-starter-data-jpa-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.2.5\spring-boot-starter-aop-3.2.5.jar;C:\Users\hp\.m2\repository\org\aspectj\aspectjweaver\1.9.22\aspectjweaver-1.9.22.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.2.5\spring-boot-starter-jdbc-3.2.5.jar;C:\Users\hp\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\hp\.m2\repository\org\springframework\spring-jdbc\6.1.6\spring-jdbc-6.1.6.jar;C:\Users\hp\.m2\repository\org\hibernate\orm\hibernate-core\6.4.4.Final\hibernate-core-6.4.4.Final.jar;C:\Users\hp\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\hp\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\hp\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\hp\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\hp\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\hp\.m2\repository\com\fasterxml\classmate\1.6.0\classmate-1.6.0.jar;C:\Users\hp\.m2\repository\net\bytebuddy\byte-buddy\1.14.13\byte-buddy-1.14.13.jar;C:\Users\hp\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\hp\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\hp\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\hp\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\hp\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\hp\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\hp\.m2\repository\org\springframework\data\spring-data-jpa\3.2.5\spring-data-jpa-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\data\spring-data-commons\3.2.5\spring-data-commons-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\spring-orm\6.1.6\spring-orm-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-tx\6.1.6\spring-tx-6.1.6.jar;C:\Users\hp\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\hp\.m2\repository\org\springframework\spring-aspects\6.1.6\spring-aspects-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.2.5\spring-boot-starter-security-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\spring-aop\6.1.6\spring-aop-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\security\spring-security-config\6.2.4\spring-security-config-6.2.4.jar;C:\Users\hp\.m2\repository\org\springframework\security\spring-security-web\6.2.4\spring-security-web-6.2.4.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.2.5\spring-boot-starter-validation-3.2.5.jar;C:\Users\hp\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.20\tomcat-embed-el-10.1.20.jar;C:\Users\hp\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\hp\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-actuator\3.2.5\spring-boot-starter-actuator-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-actuator-autoconfigure\3.2.5\spring-boot-actuator-autoconfigure-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-actuator\3.2.5\spring-boot-actuator-3.2.5.jar;C:\Users\hp\.m2\repository\io\micrometer\micrometer-observation\1.12.5\micrometer-observation-1.12.5.jar;C:\Users\hp\.m2\repository\io\micrometer\micrometer-commons\1.12.5\micrometer-commons-1.12.5.jar;C:\Users\hp\.m2\repository\io\micrometer\micrometer-jakarta9\1.12.5\micrometer-jakarta9-1.12.5.jar;C:\Users\hp\.m2\repository\io\micrometer\micrometer-core\1.12.5\micrometer-core-1.12.5.jar;C:\Users\hp\.m2\repository\org\hdrhistogram\HdrHistogram\2.1.12\HdrHistogram-2.1.12.jar;C:\Users\hp\.m2\repository\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-mail\3.2.5\spring-boot-starter-mail-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\spring-context-support\6.1.6\spring-context-support-6.1.6.jar;C:\Users\hp\.m2\repository\org\eclipse\angus\jakarta.mail\2.0.3\jakarta.mail-2.0.3.jar;C:\Users\hp\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\hp\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\hp\.m2\repository\com\mysql\mysql-connector-j\8.3.0\mysql-connector-j-8.3.0.jar;C:\Users\hp\.m2\repository\io\jsonwebtoken\jjwt-api\0.12.5\jjwt-api-0.12.5.jar;C:\Users\hp\.m2\repository\io\jsonwebtoken\jjwt-impl\0.12.5\jjwt-impl-0.12.5.jar;C:\Users\hp\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.12.5\jjwt-jackson-0.12.5.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.4\jackson-databind-2.15.4.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.4\jackson-annotations-2.15.4.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.4\jackson-core-2.15.4.jar;C:\Users\hp\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-ui\2.5.0\springdoc-openapi-starter-webmvc-ui-2.5.0.jar;C:\Users\hp\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-api\2.5.0\springdoc-openapi-starter-webmvc-api-2.5.0.jar;C:\Users\hp\.m2\repository\org\springdoc\springdoc-openapi-starter-common\2.5.0\springdoc-openapi-starter-common-2.5.0.jar;C:\Users\hp\.m2\repository\io\swagger\core\v3\swagger-core-jakarta\2.2.21\swagger-core-jakarta-2.2.21.jar;C:\Users\hp\.m2\repository\org\apache\commons\commons-lang3\3.13.0\commons-lang3-3.13.0.jar;C:\Users\hp\.m2\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.21\swagger-annotations-jakarta-2.2.21.jar;C:\Users\hp\.m2\repository\io\swagger\core\v3\swagger-models-jakarta\2.2.21\swagger-models-jakarta-2.2.21.jar;C:\Users\hp\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.15.4\jackson-dataformat-yaml-2.15.4.jar;C:\Users\hp\.m2\repository\org\webjars\swagger-ui\5.13.0\swagger-ui-5.13.0.jar;C:\Users\hp\.m2\repository\org\projectlombok\lombok\1.18.34\lombok-1.18.34.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.5\spring-boot-starter-test-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-test\3.2.5\spring-boot-test-3.2.5.jar;C:\Users\hp\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.5\spring-boot-test-autoconfigure-3.2.5.jar;C:\Users\hp\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\hp\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\hp\.m2\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;C:\Users\hp\.m2\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;C:\Users\hp\.m2\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;C:\Users\hp\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\hp\.m2\repository\org\awaitility\awaitility\4.2.1\awaitility-4.2.1.jar;C:\Users\hp\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\hp\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\hp\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\hp\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\hp\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\hp\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\hp\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.13\byte-buddy-agent-1.14.13.jar;C:\Users\hp\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\hp\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\hp\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\hp\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\hp\.m2\repository\org\springframework\spring-core\6.1.6\spring-core-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-jcl\6.1.6\spring-jcl-6.1.6.jar;C:\Users\hp\.m2\repository\org\springframework\spring-test\6.1.6\spring-test-6.1.6.jar;C:\Users\hp\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\hp\.m2\repository\org\springframework\security\spring-security-test\6.2.4\spring-security-test-6.2.4.jar;C:\Users\hp\.m2\repository\org\springframework\security\spring-security-core\6.2.4\spring-security-core-6.2.4.jar;C:\Users\hp\.m2\repository\org\springframework\security\spring-security-crypto\6.2.4\spring-security-crypto-6.2.4.jar;C:\Users\hp\.m2\repository\net\jqwik\jqwik\1.8.4\jqwik-1.8.4.jar;C:\Users\hp\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\hp\.m2\repository\net\jqwik\jqwik-api\1.8.4\jqwik-api-1.8.4.jar;C:\Users\hp\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\hp\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\hp\.m2\repository\net\jqwik\jqwik-web\1.8.4\jqwik-web-1.8.4.jar;C:\Users\hp\.m2\repository\net\jqwik\jqwik-time\1.8.4\jqwik-time-1.8.4.jar;C:\Users\hp\.m2\repository\net\jqwik\jqwik-engine\1.8.4\jqwik-engine-1.8.4.jar;C:\Users\hp\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\hp\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\hp"/>
+    <property name="user.language" value="fr"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-01-20"/>
+    <property name="java.home" value="C:\Users\hp\AppData\Local\Programs\Eclipse Adoptium\jdk-25.0.2.10-hotspot"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\hp\Desktop\projet web LayerLab\backend"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\hp\AppData\Local\Temp\surefire10323325369340236080\surefirebooter-20260502234500589_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="25.0.2+10-LTS"/>
+    <property name="user.name" value="hp"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-25.0.2+10"/>
+    <property name="localRepository" value="C:\Users\hp\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\hp\AppData\Local\Temp\"/>
+    <property name="java.version" value="25.0.2"/>
+    <property name="user.dir" value="C:\Users\hp\Desktop\projet web LayerLab\backend"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\hp\AppData\Local\Programs\Eclipse Adoptium\jdk-25.0.2.10-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\oraclexe\app\oracle\product\10.2.0\server\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\Microsoft\Edge\Application;C:\Windows\System32;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\xampp\php;C:\composer;C:\Program Files\Git\cmd;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Muse Hub\lib;c:\Users\hp\AppData\Local\Programs\Trae\bin;C:\Users\hp\AppData\Local\Programs\Eclipse Adoptium\jdk-25.0.2.10-hotspot\bin;C:\Users\hp\scoop\apps\maven\current\bin;C:\Users\hp\scoop\shims;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\hp\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\hp\AppData\Local\Programs\Python\Python312\;C:\Users\hp\AppData\Local\Programs\Python\Launcher\;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Users\hp\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hp\AppData\Local\GitHubDesktop\bin;C:\Program Files (x86)\SSH Communications Security\SSH Secure Shell;C:\Users\hp\AppData\Roaming\npm;C:\Users\hp\AppData\Local\Programs\Kiro\bin;C:\Users\hp\AppData\Roaming\Composer\vendor\bin;C:\Users\hp\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\hp\AppData\Local\Muse Hub\lib;C:\Users\hp\AppData\Local\Programs\Antigravity\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="25.0.2+10-LTS"/>
+    <property name="stdin.encoding" value="Cp1252"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="69.0"/>
+  </properties>
+  <testcase name="otpIsValidImmediatelyAfterGeneration" classname="com.layerlab.backend.property.OtpPropertyTest" time="98.189">
+    <system-out><![CDATA[23:45:20.273 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:45:22.087 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2, JWT issued
+23:45:22.406 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=7163
+23:45:22.806 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=7163, JWT issued
+23:45:23.006 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:45:23.224 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2, JWT issued
+23:45:23.449 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9999
+23:45:23.636 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9999, JWT issued
+23:45:23.837 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=105
+23:45:24.043 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=105, JWT issued
+23:45:24.426 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=6977
+23:45:25.298 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=6977, JWT issued
+23:45:25.717 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:45:27.269 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1, JWT issued
+23:45:28.245 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=75
+23:45:28.706 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=75, JWT issued
+23:45:28.915 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=337
+23:45:29.108 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=337, JWT issued
+23:45:29.293 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=308
+23:45:29.471 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=308, JWT issued
+23:45:29.651 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:45:29.843 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1, JWT issued
+23:45:30.038 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:45:30.310 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2, JWT issued
+23:45:30.496 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=4673
+23:45:30.668 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=4673, JWT issued
+23:45:30.855 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=26
+23:45:31.035 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=26, JWT issued
+23:45:31.220 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=97
+23:45:31.403 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=97, JWT issued
+23:45:31.585 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=66
+23:45:31.785 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=66, JWT issued
+23:45:31.986 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:45:32.551 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2, JWT issued
+23:45:33.649 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=17
+23:45:34.310 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=17, JWT issued
+23:45:34.590 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1128
+23:45:34.900 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1128, JWT issued
+23:45:36.095 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:45:37.611 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2, JWT issued
+23:45:37.896 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10
+23:45:38.074 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=10, JWT issued
+23:45:38.262 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=5778
+23:45:38.456 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=5778, JWT issued
+23:45:38.620 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=32
+23:45:38.814 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=32, JWT issued
+23:45:38.986 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1803
+23:45:39.143 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1803, JWT issued
+23:45:39.305 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2467
+23:45:39.492 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2467, JWT issued
+23:45:39.679 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1160
+23:45:39.877 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1160, JWT issued
+23:45:40.106 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=863
+23:45:42.006 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=863, JWT issued
+23:45:43.344 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:45:43.508 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2, JWT issued
+23:45:43.692 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=15
+23:45:43.877 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=15, JWT issued
+23:45:44.053 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1045
+23:45:44.218 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1045, JWT issued
+23:45:44.406 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1010
+23:45:44.604 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1010, JWT issued
+23:45:45.329 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=30
+23:45:45.609 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=30, JWT issued
+23:45:45.930 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=18
+23:45:46.571 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=18, JWT issued
+23:45:46.872 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=28
+23:45:48.185 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=28, JWT issued
+23:45:48.925 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:45:50.175 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=10000, JWT issued
+23:45:50.828 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=11
+23:45:51.406 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=11, JWT issued
+23:45:52.124 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:45:53.080 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2, JWT issued
+23:45:53.860 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=876
+23:45:54.955 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=876, JWT issued
+23:45:57.635 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=263
+23:45:57.921 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=263, JWT issued
+23:45:58.118 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=41
+23:45:58.341 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=41, JWT issued
+23:45:58.838 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9
+23:45:59.060 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9, JWT issued
+23:45:59.312 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9313
+23:45:59.526 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9313, JWT issued
+23:45:59.721 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=348
+23:45:59.941 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=348, JWT issued
+23:46:00.189 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=860
+23:46:00.411 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=860, JWT issued
+23:46:00.660 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=7087
+23:46:00.903 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=7087, JWT issued
+23:46:01.105 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=7
+23:46:01.362 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=7, JWT issued
+23:46:01.632 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=38
+23:46:01.841 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=38, JWT issued
+23:46:02.091 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=138
+23:46:02.242 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=138, JWT issued
+23:46:02.429 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=201
+23:46:02.623 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=201, JWT issued
+23:46:02.932 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=40
+23:46:03.136 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=40, JWT issued
+23:46:03.336 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8651
+23:46:03.524 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=8651, JWT issued
+23:46:03.738 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=47
+23:46:03.929 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=47, JWT issued
+23:46:04.388 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=6
+23:46:05.821 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=6, JWT issued
+23:46:06.049 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=280
+23:46:06.324 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=280, JWT issued
+23:46:06.999 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8070
+23:46:09.122 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=8070, JWT issued
+23:46:09.369 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=20
+23:46:09.982 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=20, JWT issued
+23:46:10.824 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=15
+23:46:11.638 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=15, JWT issued
+23:46:12.960 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=33
+23:46:14.322 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=33, JWT issued
+23:46:14.572 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=19
+23:46:14.837 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=19, JWT issued
+23:46:15.113 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9999
+23:46:16.909 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9999, JWT issued
+23:46:17.149 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8
+23:46:18.545 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=8, JWT issued
+23:46:18.920 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=109
+23:46:19.267 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=109, JWT issued
+23:46:19.710 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8897
+23:46:20.839 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=8897, JWT issued
+23:46:21.388 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=5430
+23:46:22.711 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=5430, JWT issued
+23:46:23.650 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:46:23.921 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1, JWT issued
+23:46:24.203 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=7226
+23:46:25.123 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=7226, JWT issued
+23:46:25.701 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:46:25.910 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1, JWT issued
+23:46:26.064 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10
+23:46:26.237 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=10, JWT issued
+23:46:26.426 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:46:26.601 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1, JWT issued
+23:46:26.777 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8988
+23:46:26.945 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=8988, JWT issued
+23:46:27.143 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=290
+23:46:27.331 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=290, JWT issued
+23:46:27.516 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=93
+23:46:27.753 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=93, JWT issued
+23:46:27.935 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:46:28.114 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1, JWT issued
+23:46:28.346 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8
+23:46:29.131 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=8, JWT issued
+23:46:31.860 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:46:32.750 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=10000, JWT issued
+23:46:34.199 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1563
+23:46:35.330 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1563, JWT issued
+23:46:36.081 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=101
+23:46:36.218 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=101, JWT issued
+23:46:36.407 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=33
+23:46:36.593 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=33, JWT issued
+23:46:36.775 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=262
+23:46:36.956 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=262, JWT issued
+23:46:37.135 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:46:37.320 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=10000, JWT issued
+23:46:37.541 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=35
+23:46:37.824 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=35, JWT issued
+23:46:38.003 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1305
+23:46:38.192 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1305, JWT issued
+23:46:38.382 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:46:38.575 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=10000, JWT issued
+23:46:38.776 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:46:39.012 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=10000, JWT issued
+23:46:39.280 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=29
+23:46:39.475 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=29, JWT issued
+23:46:39.673 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=104
+23:46:39.868 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=104, JWT issued
+23:46:40.076 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8664
+23:46:40.267 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=8664, JWT issued
+23:46:40.473 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8011
+23:46:40.726 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=8011, JWT issued
+23:46:41.499 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9999
+23:46:42.443 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9999, JWT issued
+23:46:43.329 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=6498
+23:46:45.749 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=6498, JWT issued
+23:46:47.721 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9999
+23:46:48.668 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9999, JWT issued
+23:46:48.837 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8606
+23:46:49.027 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=8606, JWT issued
+23:46:49.222 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2483
+23:46:49.593 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2483, JWT issued
+23:46:50.425 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2578
+23:46:51.447 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2578, JWT issued
+23:46:53.262 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9354
+23:46:53.965 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9354, JWT issued
+23:46:54.632 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=13
+23:46:55.211 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=13, JWT issued
+23:46:55.900 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2192
+23:46:57.444 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2192, JWT issued
+23:46:57.588 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=3271
+23:46:57.730 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=3271, JWT issued
+23:46:57.831 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=11
+23:46:57.923 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=11, JWT issued
+23:46:58.019 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2182
+23:46:58.119 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2182, JWT issued
+timestamp = 2026-05-02T23:46:58.121631700, OtpPropertyTest:otpIsValidImmediatelyAfterGeneration = 
+                              |-----------------------jqwik-----------------------
+tries = 100                   | # of calls to property
+checks = 100                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 16         | # of all combined edge cases
+edge-cases#tried = 14         | # of edge cases tried in current run
+seed = 5989552000100048550    | random seed to reproduce generated values
+
+
+]]></system-out>
+  </testcase>
+  <testcase name="otpIsAlwaysSixDigits" classname="com.layerlab.backend.property.OtpPropertyTest" time="9.576">
+    <system-out><![CDATA[23:46:58.220 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8894
+23:46:58.316 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=61
+23:46:58.406 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=13
+23:46:58.496 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=7
+23:46:58.590 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:46:58.682 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=7976
+23:46:58.771 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=6
+23:46:58.868 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2479
+23:46:58.959 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=4640
+23:46:59.059 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=220
+23:46:59.150 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1098
+23:46:59.243 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=30
+23:46:59.337 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:46:59.428 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=3993
+23:46:59.523 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=124
+23:46:59.615 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=241
+23:46:59.708 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:46:59.802 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2544
+23:46:59.896 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1554
+23:46:59.996 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=223
+23:47:00.093 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=636
+23:47:00.182 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8
+23:47:00.275 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=83
+23:47:00.367 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=23
+23:47:00.458 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:47:00.550 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=25
+23:47:00.642 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=7
+23:47:00.736 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=28
+23:47:00.829 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2851
+23:47:00.921 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=4351
+23:47:01.018 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2830
+23:47:01.121 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=198
+23:47:01.234 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=3343
+23:47:01.347 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=103
+23:47:01.475 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:47:01.565 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=3193
+23:47:01.655 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8806
+23:47:01.749 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=757
+23:47:01.844 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=508
+23:47:01.943 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:47:02.032 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:47:02.126 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=54
+23:47:02.219 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=59
+23:47:02.314 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9974
+23:47:02.412 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9560
+23:47:02.504 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=19
+23:47:02.598 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=97
+23:47:02.697 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:47:02.793 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1527
+23:47:02.900 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=26
+23:47:03.000 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:47:03.093 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=292
+23:47:03.187 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=3102
+23:47:03.283 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:47:03.384 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1126
+23:47:03.477 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=62
+23:47:03.567 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=27
+23:47:03.661 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2213
+23:47:03.754 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1836
+23:47:03.844 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=43
+23:47:03.943 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=39
+23:47:04.033 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=197
+23:47:04.125 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=34
+23:47:04.216 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:47:04.311 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:47:04.401 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:47:04.495 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=292
+23:47:04.589 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:47:04.684 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8881
+23:47:04.779 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=39
+23:47:04.872 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:47:04.966 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=33
+23:47:05.060 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=104
+23:47:05.157 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=34
+23:47:05.250 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2366
+23:47:05.346 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=689
+23:47:05.467 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=606
+23:47:05.564 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=129
+23:47:05.660 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=117
+23:47:05.751 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=52
+23:47:05.845 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2232
+23:47:05.944 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=167
+23:47:06.036 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9640
+23:47:06.127 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=42
+23:47:06.218 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:47:06.312 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=7647
+23:47:06.405 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=4
+23:47:06.500 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=11
+23:47:06.591 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2173
+23:47:06.688 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=463
+23:47:06.796 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=368
+23:47:06.911 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=60
+23:47:07.010 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=54
+23:47:07.119 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9
+23:47:07.213 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9999
+23:47:07.304 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=3048
+23:47:07.406 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2803
+23:47:07.502 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=22
+23:47:07.594 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=293
+23:47:07.696 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=294
+timestamp = 2026-05-02T23:47:07.696589, OtpPropertyTest:otpIsAlwaysSixDigits = 
+                              |-----------------------jqwik-----------------------
+tries = 100                   | # of calls to property
+checks = 100                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 16         | # of all combined edge cases
+edge-cases#tried = 13         | # of edge cases tried in current run
+seed = 5660176549840235283    | random seed to reproduce generated values
+
+
+]]></system-out>
+  </testcase>
+  <testcase name="otpCanOnlyBeUsedOnce" classname="com.layerlab.backend.property.OtpPropertyTest" time="19.643">
+    <system-out><![CDATA[23:47:07.805 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=4788
+23:47:07.899 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=4788, JWT issued
+23:47:07.899 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=4788
+23:47:07.990 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=6
+23:47:08.083 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=6, JWT issued
+23:47:08.083 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=6
+23:47:08.180 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1851
+23:47:08.277 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1851, JWT issued
+23:47:08.277 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=1851
+23:47:08.367 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:47:08.460 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2, JWT issued
+23:47:08.460 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=2
+23:47:08.555 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=6381
+23:47:08.649 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=6381, JWT issued
+23:47:08.649 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=6381
+23:47:08.743 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=38
+23:47:08.837 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=38, JWT issued
+23:47:08.837 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=38
+23:47:08.927 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=23
+23:47:09.019 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=23, JWT issued
+23:47:09.020 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=23
+23:47:09.111 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9
+23:47:09.203 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9, JWT issued
+23:47:09.203 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=9
+23:47:09.295 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=294
+23:47:09.387 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=294, JWT issued
+23:47:09.387 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=294
+23:47:09.481 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=14
+23:47:09.572 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=14, JWT issued
+23:47:09.572 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=14
+23:47:09.663 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=87
+23:47:09.755 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=87, JWT issued
+23:47:09.755 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=87
+23:47:09.847 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=653
+23:47:09.941 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=653, JWT issued
+23:47:09.942 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=653
+23:47:10.037 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1701
+23:47:10.128 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1701, JWT issued
+23:47:10.129 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=1701
+23:47:10.225 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=36
+23:47:10.317 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=36, JWT issued
+23:47:10.317 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=36
+23:47:10.415 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:47:10.508 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2, JWT issued
+23:47:10.509 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=2
+23:47:10.604 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=153
+23:47:10.697 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=153, JWT issued
+23:47:10.697 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=153
+23:47:10.791 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=164
+23:47:10.889 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=164, JWT issued
+23:47:10.889 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=164
+23:47:10.983 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=73
+23:47:11.079 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=73, JWT issued
+23:47:11.079 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=73
+23:47:11.171 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:47:11.263 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2, JWT issued
+23:47:11.264 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=2
+23:47:11.383 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:47:11.529 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2, JWT issued
+23:47:11.530 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=2
+23:47:11.637 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=118
+23:47:11.736 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=118, JWT issued
+23:47:11.736 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=118
+23:47:11.834 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2
+23:47:11.928 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2, JWT issued
+23:47:11.928 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=2
+23:47:12.033 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:47:12.137 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1, JWT issued
+23:47:12.137 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=1
+23:47:12.230 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2106
+23:47:12.325 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2106, JWT issued
+23:47:12.325 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=2106
+23:47:12.418 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2737
+23:47:12.513 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2737, JWT issued
+23:47:12.513 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=2737
+23:47:12.614 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2082
+23:47:12.710 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2082, JWT issued
+23:47:12.710 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=2082
+23:47:12.806 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=19
+23:47:12.904 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=19, JWT issued
+23:47:12.904 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=19
+23:47:13.002 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:47:13.113 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1, JWT issued
+23:47:13.113 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=1
+23:47:13.212 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:47:13.316 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1, JWT issued
+23:47:13.316 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=1
+23:47:13.422 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=3226
+23:47:13.521 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=3226, JWT issued
+23:47:13.521 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=3226
+23:47:13.619 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=316
+23:47:13.720 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=316, JWT issued
+23:47:13.720 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=316
+23:47:13.812 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=719
+23:47:13.910 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=719, JWT issued
+23:47:13.910 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=719
+23:47:14.002 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=30
+23:47:14.095 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=30, JWT issued
+23:47:14.095 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=30
+23:47:14.198 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=33
+23:47:14.294 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=33, JWT issued
+23:47:14.294 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=33
+23:47:14.388 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=198
+23:47:14.488 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=198, JWT issued
+23:47:14.489 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=198
+23:47:14.594 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=700
+23:47:14.694 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=700, JWT issued
+23:47:14.694 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=700
+23:47:14.787 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=4
+23:47:14.890 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=4, JWT issued
+23:47:14.890 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=4
+23:47:14.991 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=112
+23:47:15.089 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=112, JWT issued
+23:47:15.089 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=112
+23:47:15.188 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=6033
+23:47:15.285 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=6033, JWT issued
+23:47:15.286 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=6033
+23:47:15.380 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=78
+23:47:15.476 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=78, JWT issued
+23:47:15.476 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=78
+23:47:15.573 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=95
+23:47:15.666 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=95, JWT issued
+23:47:15.666 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=95
+23:47:15.767 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2570
+23:47:15.867 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2570, JWT issued
+23:47:15.867 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=2570
+23:47:15.990 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=44
+23:47:16.122 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=44, JWT issued
+23:47:16.122 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=44
+23:47:16.256 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=279
+23:47:16.357 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=279, JWT issued
+23:47:16.357 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=279
+23:47:16.453 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=50
+23:47:16.552 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=50, JWT issued
+23:47:16.552 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=50
+23:47:16.650 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9999
+23:47:16.742 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9999, JWT issued
+23:47:16.742 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=9999
+23:47:16.835 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=31
+23:47:16.930 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=31, JWT issued
+23:47:16.930 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=31
+23:47:17.029 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9999
+23:47:17.124 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9999, JWT issued
+23:47:17.124 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=9999
+23:47:17.221 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:47:17.313 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1, JWT issued
+23:47:17.313 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=1
+23:47:17.408 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=89
+23:47:17.505 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=89, JWT issued
+23:47:17.506 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=89
+23:47:17.600 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=13
+23:47:17.694 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=13, JWT issued
+23:47:17.695 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=13
+23:47:17.793 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=25
+23:47:17.891 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=25, JWT issued
+23:47:17.891 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=25
+23:47:17.990 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=39
+23:47:18.087 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=39, JWT issued
+23:47:18.087 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=39
+23:47:18.190 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:47:18.289 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1, JWT issued
+23:47:18.289 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=1
+23:47:18.396 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2634
+23:47:18.507 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2634, JWT issued
+23:47:18.507 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=2634
+23:47:18.608 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1808
+23:47:18.712 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1808, JWT issued
+23:47:18.712 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=1808
+23:47:18.806 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=29
+23:47:18.904 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=29, JWT issued
+23:47:18.904 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=29
+23:47:18.999 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=252
+23:47:19.100 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=252, JWT issued
+23:47:19.100 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=252
+23:47:19.200 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=963
+23:47:19.293 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=963, JWT issued
+23:47:19.294 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=963
+23:47:19.392 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=592
+23:47:19.488 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=592, JWT issued
+23:47:19.488 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=592
+23:47:19.624 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=639
+23:47:19.732 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=639, JWT issued
+23:47:19.732 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=639
+23:47:19.844 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=752
+23:47:19.939 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=752, JWT issued
+23:47:19.939 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=752
+23:47:20.032 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=225
+23:47:20.124 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=225, JWT issued
+23:47:20.125 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=225
+23:47:20.223 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=116
+23:47:20.313 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=116, JWT issued
+23:47:20.313 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=116
+23:47:20.409 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=524
+23:47:20.547 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=524, JWT issued
+23:47:20.547 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=524
+23:47:20.635 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1678
+23:47:20.727 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1678, JWT issued
+23:47:20.727 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=1678
+23:47:20.827 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=689
+23:47:20.924 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=689, JWT issued
+23:47:20.924 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=689
+23:47:21.022 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1020
+23:47:21.118 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1020, JWT issued
+23:47:21.118 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=1020
+23:47:21.210 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=6035
+23:47:21.300 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=6035, JWT issued
+23:47:21.301 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=6035
+23:47:21.391 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1
+23:47:21.483 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1, JWT issued
+23:47:21.484 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=1
+23:47:21.578 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:47:21.688 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=10000, JWT issued
+23:47:21.688 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=10000
+23:47:21.787 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2986
+23:47:21.880 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2986, JWT issued
+23:47:21.880 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=2986
+23:47:21.973 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=1827
+23:47:22.062 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=1827, JWT issued
+23:47:22.062 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=1827
+23:47:22.152 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=171
+23:47:22.244 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=171, JWT issued
+23:47:22.244 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=171
+23:47:22.346 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=27
+23:47:22.447 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=27, JWT issued
+23:47:22.447 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=27
+23:47:22.546 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=105
+23:47:22.639 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=105, JWT issued
+23:47:22.639 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=105
+23:47:22.729 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:47:22.822 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=10000, JWT issued
+23:47:22.822 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=10000
+23:47:22.921 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=3875
+23:47:23.016 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=3875, JWT issued
+23:47:23.016 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=3875
+23:47:23.115 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=65
+23:47:23.217 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=65, JWT issued
+23:47:23.218 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=65
+23:47:23.338 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=323
+23:47:23.435 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=323, JWT issued
+23:47:23.436 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=323
+23:47:23.540 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=130
+23:47:23.635 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=130, JWT issued
+23:47:23.635 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=130
+23:47:23.730 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=12
+23:47:23.834 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=12, JWT issued
+23:47:23.834 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=12
+23:47:23.929 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=413
+23:47:24.021 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=413, JWT issued
+23:47:24.021 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=413
+23:47:24.112 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:47:24.205 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=10000, JWT issued
+23:47:24.205 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=10000
+23:47:24.308 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8608
+23:47:24.447 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=8608, JWT issued
+23:47:24.447 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=8608
+23:47:24.555 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=3209
+23:47:24.682 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=3209, JWT issued
+23:47:24.682 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=3209
+23:47:24.779 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10000
+23:47:24.877 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=10000, JWT issued
+23:47:24.878 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=10000
+23:47:24.976 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9999
+23:47:25.079 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9999, JWT issued
+23:47:25.079 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=9999
+23:47:25.174 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=201
+23:47:25.272 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=201, JWT issued
+23:47:25.272 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=201
+23:47:25.371 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=2336
+23:47:25.462 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=2336, JWT issued
+23:47:25.462 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=2336
+23:47:25.557 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=10
+23:47:25.648 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=10, JWT issued
+23:47:25.648 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=10
+23:47:25.739 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9999
+23:47:25.837 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9999, JWT issued
+23:47:25.837 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=9999
+23:47:25.930 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=132
+23:47:26.024 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=132, JWT issued
+23:47:26.024 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=132
+23:47:26.115 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=122
+23:47:26.209 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=122, JWT issued
+23:47:26.209 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=122
+23:47:26.313 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9999
+23:47:26.405 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9999, JWT issued
+23:47:26.405 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=9999
+23:47:26.496 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=9999
+23:47:26.588 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=9999, JWT issued
+23:47:26.588 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=9999
+23:47:26.678 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=208
+23:47:26.771 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=208, JWT issued
+23:47:26.771 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=208
+23:47:26.864 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=6488
+23:47:26.964 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=6488, JWT issued
+23:47:26.964 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=6488
+23:47:27.053 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=8
+23:47:27.150 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=8, JWT issued
+23:47:27.150 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=8
+23:47:27.242 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP generated and sent for userId=6
+23:47:27.340 [main] INFO com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validated successfully for userId=6, JWT issued
+23:47:27.340 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- OTP validation attempted but no OTP found for userId=6
+timestamp = 2026-05-02T23:47:27.340782400, OtpPropertyTest:otpCanOnlyBeUsedOnce = 
+                              |-----------------------jqwik-----------------------
+tries = 100                   | # of calls to property
+checks = 100                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 16         | # of all combined edge cases
+edge-cases#tried = 16         | # of edge cases tried in current run
+seed = 779740367757780116     | random seed to reproduce generated values
+
+
+]]></system-out>
+  </testcase>
+  <testcase name="otpIsInvalidAfterExpiry" classname="com.layerlab.backend.property.OtpPropertyTest" time="9.575">
+    <system-out><![CDATA[23:47:27.450 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:27.547 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=22
+23:47:27.640 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=23
+23:47:27.738 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=114
+23:47:27.848 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:27.956 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1585
+23:47:28.047 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=8440
+23:47:28.137 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:28.232 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=78
+23:47:28.322 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:28.412 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=103
+23:47:28.503 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=4155
+23:47:28.595 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=30
+23:47:28.684 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=588
+23:47:28.780 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:28.871 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:28.962 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=17
+23:47:29.055 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1380
+23:47:29.154 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1128
+23:47:29.246 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=557
+23:47:29.339 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1
+23:47:29.430 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:29.520 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:29.613 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=9
+23:47:29.702 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=542
+23:47:29.792 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=264
+23:47:29.884 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:29.973 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:30.066 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=991
+23:47:30.156 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=273
+23:47:30.248 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=9575
+23:47:30.341 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=978
+23:47:30.430 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2368
+23:47:30.521 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1120
+23:47:30.610 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=733
+23:47:30.700 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=29
+23:47:30.851 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=7596
+23:47:30.940 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=4
+23:47:31.031 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=320
+23:47:31.123 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=103
+23:47:31.218 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=308
+23:47:31.317 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=264
+23:47:31.445 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=60
+23:47:31.574 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=335
+23:47:31.670 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=742
+23:47:31.762 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=396
+23:47:31.853 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:31.945 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=360
+23:47:32.037 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:32.129 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=9999
+23:47:32.222 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=5607
+23:47:32.315 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:32.405 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=41
+23:47:32.496 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=53
+23:47:32.588 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:32.678 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:32.774 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:32.867 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=16
+23:47:32.963 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=4
+23:47:33.058 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=80
+23:47:33.151 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=3900
+23:47:33.248 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=3143
+23:47:33.345 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=13
+23:47:33.446 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=9999
+23:47:33.537 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=5819
+23:47:33.631 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:33.726 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=6485
+23:47:33.822 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=24
+23:47:33.916 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=16
+23:47:34.012 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1
+23:47:34.166 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1
+23:47:34.255 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=9999
+23:47:34.346 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=185
+23:47:34.436 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1
+23:47:34.527 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=7228
+23:47:34.618 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2567
+23:47:34.711 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=4
+23:47:34.812 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=38
+23:47:34.907 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=48
+23:47:35.005 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=10000
+23:47:35.119 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1
+23:47:35.209 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1798
+23:47:35.302 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=10000
+23:47:35.392 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2
+23:47:35.481 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=5
+23:47:35.576 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=2672
+23:47:35.667 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=74
+23:47:35.763 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=9074
+23:47:35.856 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=12
+23:47:35.956 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=784
+23:47:36.046 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=118
+23:47:36.138 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=6
+23:47:36.232 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=297
+23:47:36.327 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1026
+23:47:36.453 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=5361
+23:47:36.543 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=71
+23:47:36.634 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=317
+23:47:36.728 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1075
+23:47:36.821 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=5210
+23:47:36.915 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Expired OTP submitted for userId=1004
+timestamp = 2026-05-02T23:47:36.916734300, OtpPropertyTest:otpIsInvalidAfterExpiry = 
+                              |-----------------------jqwik-----------------------
+tries = 100                   | # of calls to property
+checks = 100                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 64         | # of all combined edge cases
+edge-cases#tried = 19         | # of edge cases tried in current run
+seed = -2218342830831873835   | random seed to reproduce generated values
+
+
+]]></system-out>
+  </testcase>
+  <testcase name="wrongOtpCodeIsRejectedAndPendingOtpIsPreserved" classname="com.layerlab.backend.property.OtpPropertyTest" time="79.95">
+    <system-out><![CDATA[23:47:37.104 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=8
+23:47:37.289 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=1860
+23:47:37.478 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=647
+23:47:37.663 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2
+23:47:37.865 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=8680
+23:47:38.056 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2
+23:47:38.243 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=72
+23:47:38.428 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=573
+23:47:38.633 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=103
+23:47:38.826 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=469
+23:47:39.010 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2939
+23:47:39.191 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=469
+23:47:39.377 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=5812
+23:47:39.559 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2
+23:47:39.756 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2667
+23:47:39.935 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=10
+23:47:40.114 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2
+23:47:40.305 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=8348
+23:47:40.497 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=213
+23:47:40.681 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2
+23:47:40.927 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=44
+23:47:41.108 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=7676
+23:47:41.292 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=918
+23:47:41.475 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=28
+23:47:41.656 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=1
+23:47:41.875 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=25
+23:47:42.054 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2
+23:47:42.233 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=1
+23:47:42.416 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=31
+23:47:42.597 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=1
+23:47:42.782 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=72
+23:47:42.967 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=115
+23:47:43.151 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=10000
+23:47:43.339 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=8
+23:47:43.572 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=8382
+23:47:43.753 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=1
+23:47:43.932 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=6517
+23:47:44.114 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=16
+23:47:44.299 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=39
+23:47:44.484 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=217
+23:47:44.666 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=414
+23:47:44.850 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=4
+23:47:45.039 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=45
+23:47:45.249 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=14
+23:47:45.453 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=166
+23:47:45.638 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=934
+23:47:45.825 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=3853
+23:47:46.006 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=937
+23:47:46.191 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=342
+23:47:46.377 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=111
+23:47:46.567 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=12
+23:47:46.765 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=119
+23:47:47.021 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=12
+23:47:47.208 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=269
+23:47:47.399 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=307
+23:47:47.583 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2742
+23:47:47.780 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=51
+23:47:47.964 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=9999
+23:47:48.159 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=10
+23:47:48.347 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=12
+23:47:48.533 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2307
+23:47:48.716 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=10
+23:47:48.902 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=7755
+23:47:49.115 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=1701
+23:47:49.297 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=10000
+23:47:49.479 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2072
+23:47:49.663 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=5850
+23:47:49.845 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=39
+23:47:50.039 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=83
+23:47:50.273 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=49
+23:47:50.450 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=10000
+23:47:50.635 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=4816
+23:47:50.821 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2429
+23:47:51.010 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=6
+23:47:51.302 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=9999
+23:47:51.678 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=214
+23:47:52.158 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=540
+23:47:53.861 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=78
+23:47:57.907 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=10000
+23:47:59.586 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=48
+23:47:59.960 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=18
+23:48:01.563 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2
+23:48:06.096 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=8100
+23:48:09.371 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=189
+23:48:13.330 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=9999
+23:48:15.494 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=32
+23:48:16.589 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=10000
+23:48:21.396 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=242
+23:48:25.043 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=2967
+23:48:34.332 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=7139
+23:48:37.147 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=9999
+23:48:38.980 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=5117
+23:48:40.999 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=7244
+23:48:42.997 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=9999
+23:48:44.367 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=515
+23:48:46.098 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=125
+23:48:49.672 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=1166
+23:48:52.363 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=36
+23:48:55.386 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=8
+23:48:56.866 [main] WARN com.layerlab.backend.service.TwoFactorServiceImpl -- Invalid OTP submitted for userId=9999
+timestamp = 2026-05-02T23:48:56.866856200, OtpPropertyTest:wrongOtpCodeIsRejectedAndPendingOtpIsPreserved = 
+                              |-----------------------jqwik-----------------------
+tries = 100                   | # of calls to property
+checks = 100                  | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 16         | # of all combined edge cases
+edge-cases#tried = 15         | # of edge cases tried in current run
+seed = 7271903295421414361    | random seed to reproduce generated values
+
+
+]]></system-out>
+  </testcase>
+</testsuite>

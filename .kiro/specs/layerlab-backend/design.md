@@ -51,7 +51,7 @@ com.layerlab.backend
 │   ├── SwaggerConfig.java
 │   └── CorsConfig.java
 ├── controller/
-│   ├── AuthController.java
+│   ├── AuthController.java        (register, login, 2FA verify, enable/disable)
 │   ├── CategoryController.java
 │   ├── ProductController.java
 │   ├── FileController.java
@@ -64,6 +64,8 @@ com.layerlab.backend
 │   └── UserController.java
 ├── service/
 │   ├── AuthService.java / AuthServiceImpl.java
+│   ├── TwoFactorService.java / TwoFactorServiceImpl.java
+│   ├── EmailService.java
 │   ├── CategoryService.java / CategoryServiceImpl.java
 │   ├── ProductService.java / ProductServiceImpl.java
 │   ├── FileService.java / FileServiceImpl.java
@@ -220,6 +222,9 @@ erDiagram
         String address
         String role
         Boolean active
+        Boolean twoFactorEnabled
+        String twoFactorOtpCode
+        LocalDateTime twoFactorOtpExpiry
         LocalDateTime createdAt
     }
     CATEGORY {
@@ -457,6 +462,14 @@ erDiagram
 
 ## Gestion des erreurs
 
+### Propriété 12 : Validité et unicité du code OTP
+
+*Pour tout* code OTP généré par `TwoFactorService`, le code doit être valide immédiatement après sa création, invalide après 10 minutes, et ne peut être utilisé qu'une seule fois (invalidé après validation réussie).
+
+**Valide : Exigence 16.4**
+
+---
+
 ### Stratégie globale
 
 Toutes les exceptions sont centralisées dans `GlobalExceptionHandler`. Les services lancent des exceptions métier typées ; les controllers ne contiennent aucune logique de gestion d'erreur.
@@ -518,6 +531,7 @@ Format de tag : `Feature: layerlab-backend, Property {N}: {texte de la propriét
 | P9 : Note moyenne | `AverageRatingPropertyTest` | Listes de notes [1,5] |
 | P10 : Codes promo | `PromoCodePropertyTest` | Codes, dates, pourcentages |
 | P11 : Structure erreurs | `ErrorResponsePropertyTest` | Types d'exceptions variés |
+| P12 : Validité OTP | `OtpPropertyTest` | Codes OTP, durées, tentatives multiples |
 
 ### Tests d'intégration
 

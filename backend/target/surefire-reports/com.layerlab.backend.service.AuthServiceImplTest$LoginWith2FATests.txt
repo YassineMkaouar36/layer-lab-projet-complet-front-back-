@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.layerlab.backend.service.AuthServiceImplTest$LoginWith2FATests
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in com.layerlab.backend.service.AuthServiceImplTest$LoginWith2FATests

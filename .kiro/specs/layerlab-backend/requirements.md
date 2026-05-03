@@ -271,6 +271,6 @@ LayerLab est une application de service d'impression 3D destinée au marché tun
 1. WHEN une requête est reçue par l'API, THE API SHALL retourner une réponse en moins de 2 secondes pour 95 % des requêtes sous une charge de 500 requêtes simultanées.
 2. THE API SHALL chiffrer toutes les communications via HTTPS en environnement de production.
 3. THE API SHALL journaliser chaque action d'écriture (création, modification, suppression) avec l'identifiant de l'utilisateur, le timestamp et la ressource concernée.
-4. WHERE la fonctionnalité d'authentification à deux facteurs est activée, THE AuthService SHALL envoyer un code OTP par email et exiger sa validation avant d'émettre le token JWT.
+4. WHERE la fonctionnalité d'authentification à deux facteurs est activée pour un compte, THE AuthService SHALL, lors d'une connexion réussie (identifiants corrects), générer un code OTP à 6 chiffres, l'envoyer par email à l'utilisateur et retourner un challenge 2FA (requiresTwoFactor: true, userId) sans émettre de token JWT. Le token JWT ne sera émis qu'après validation du code OTP via `POST /api/auth/2fa/verify`. Le code OTP expire après 10 minutes et ne peut être utilisé qu'une seule fois. L'utilisateur peut activer ou désactiver la 2FA via `POST /api/auth/2fa/enable` et `POST /api/auth/2fa/disable`.
 5. THE API SHALL effectuer une sauvegarde automatique de la base de données MySQL toutes les 24 heures.
 6. THE API SHALL être conforme au RGPD en permettant à un Client de demander la suppression de ses données personnelles via `DELETE /api/users/me`.
